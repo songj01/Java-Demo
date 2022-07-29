@@ -1,0 +1,9 @@
+1. Resource "/server' does not exist
+solution: delete all servers on the left panel, then create a new one.
+
+2. The server name is already in use. Specify a different name.
+solution: delete org.eclipse.wst.server.core.prefs and org.eclipse.jst.server.tomcat.core.prefs in {workspace-directory}/.metadata/.plugins/org.eclipse.core.runtime/.settings   
+ 
+3. 8080 port is in use
+solution:   1) netstat -ano | findstr 8080      2) taskkill /F /pid 4996
+4.The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.

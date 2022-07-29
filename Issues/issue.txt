@@ -1,0 +1,42 @@
+1. Statement VS. PreparedStatement vs. CallableStatement
+
+
+
+2. HttpServlet cannot be resolved to a type
+
+The reason is the Java Servlet API is missing in the project’s class path. You can solve this problem by specifying a server runtime for the project
+
+right click --> Build Path-->Configuration-->Library--> Add Server Runtime
+
+2. project facet java version is too high
+
+  Adjust the java version in project facets section.
+  
+  
+3. cookies vs sessions
+
+HttpSession’s getSession() vs. getSession(true) vs. getSession(false) methods
+
+getSession() : Returns the current session associated with this request, or if the request does not have a session, creates one.
+getSession(true) : Returns the current HttpSession associated with this request, if there is no current session, returns a new session
+getSession(false) : Returns the current HttpSession associated with this request, if there is no current session, returns null.
+
+
+
+Servlet: cookies, session, filter
+
+Life cycle of a servlet:
+init()--> creates a servlet object
+service() --> doGet() & doPost() 
+destroy() --> destroy connection of a servlet
+
+
+JSP
+
+Client/Browser Request --> JSP File --> Servlet File --> Servlet Class --> JspInit()  JspService() JspDestroy() --> Response to Client/Browser
+
+1. Scripting elements <%  Statement  %> --> java statement
+2. Directives
+3. Standard actions
+4. EL (Expression Language) <%= Statement  %> --> println statement  <%@include file = "footer.jsp" %>
+5. JSTL (JSP Standard Tag Library)
