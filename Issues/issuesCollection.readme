@@ -7,3 +7,5 @@ solution: delete org.eclipse.wst.server.core.prefs and org.eclipse.jst.server.to
 3. 8080 port is in use
 solution:   1) netstat -ano | findstr 8080      2) taskkill /F /pid 4996
 4.The origin server did not find a current representation for the target resource or is not willing to disclose that one exists.
+
+5. java.lang.IllegalArgumentException: There is no PasswordEncoder mapped for the id "null"
