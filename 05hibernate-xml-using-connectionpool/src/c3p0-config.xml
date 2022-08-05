@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<c3p0-config>
+	<default-config>
+
+		<!-- Connection Parameters -->
+		<property name="driverClass">com.mysql.cj.jdbc.Driver</property>
+		<property name="jdbcUrl">jdbc:mysql://localhost:3306/javaproject?serverTime=UTC
+		</property>
+		<property name="user">root</property>
+		<property name="password">1023</property>
+
+		<!-- Connection Pool Parameters -->
+		<property name="initalPoolSize">5</property>
+		<property name="maxPoolSize">10</property>
+		<propety name="checkoutTimeout">3000</propety>
+		
+	</default-config>
+
+
+
+
+
+</c3p0-config>
