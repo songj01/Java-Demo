@@ -9,9 +9,8 @@ public class AppTest {
 	@Test
 	public void test() {
 		CustomerDaoImp customerDaoImp = new CustomerDaoImp();
-		customerDaoImp.createCustomer();
-//		customerDaoImp.findAll();
-//		customerDaoImp.findById(2);
+	//	customerDaoImp.createCustomer();
+		customerDaoImp.findAll();
 		
 	}
 	

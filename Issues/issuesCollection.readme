@@ -17,3 +17,5 @@ solution：add scope attribute provided to it.
 Compile is the default scope, used if none is specified. Compile dependencies are available in all classpaths of a project. 
 Furthermore, those dependencies are propagated to dependent projects. Provided is much like compile, 
 but indicates you expect the JDK or a container to provide the dependency at runtime.
+
+7. java.lang.UnsupportedOperationException: The application must supply JDBC connections

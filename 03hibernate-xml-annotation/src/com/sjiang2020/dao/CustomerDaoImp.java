@@ -10,18 +10,18 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
 
-import com.sjiang2020.config.HibernateAnnotationUtil;
 import com.sjiang2020.model.Customer;
 
 public class CustomerDaoImp implements CustomerDao {
 
+	Configuration configuration;
 	SessionFactory sessionFactory;
 
 	public CustomerDaoImp() {
-		sessionFactory = HibernateAnnotationUtil.getSessionFactory();
-		if(sessionFactory == null) {
-			System.out.println("sessionFactory get failed!");
-		}
+
+		configuration = new Configuration();
+		sessionFactory = configuration.configure("hibernate.cfg.xml").buildSessionFactory();
+
 	}
 
 	@Override
@@ -67,25 +67,10 @@ public class CustomerDaoImp implements CustomerDao {
 		return null;
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public Customer findById(int id) {
-		
-		Session session = null;
-		Customer customer = null;
-		try {
-			session = sessionFactory.openSession();
-			
-			String sql = "from Customer where id = ?1";
-			Query query = session.createQuery(sql);
-			customer = (Customer) query.setInteger(1, id).list().get(0);
-			System.out.println(customer);
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return customer;
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

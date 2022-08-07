@@ -9,7 +9,8 @@ public class AppTest {
 	public void testApp() {
 		
 		UserDaoImp userDaoImp = new UserDaoImp();
-		userDaoImp.createUser();
+	//	userDaoImp.createUser();
+		userDaoImp.findAll();
 	}
 
 }
