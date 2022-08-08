@@ -67,7 +67,7 @@ public class CustomerDaoImp implements CustomerDao {
 		return null;
 	}
 
-	@SuppressWarnings("deprecation")
+	
 	@Override
 	public Customer findById(int id) {
 		
@@ -76,9 +76,7 @@ public class CustomerDaoImp implements CustomerDao {
 		try {
 			session = sessionFactory.openSession();
 			
-			String sql = "from Customer where id = ?1";
-			Query query = session.createQuery(sql);
-			customer = (Customer) query.setInteger(1, id).list().get(0);
+			customer = session.load(Customer.class, id);
 			System.out.println(customer);
 			
 		} catch (Exception e) {
