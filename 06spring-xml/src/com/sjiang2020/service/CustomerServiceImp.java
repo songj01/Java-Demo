@@ -7,8 +7,14 @@ import com.sjiang2020.model.Customer;
 
 public class CustomerServiceImp implements CustomerService {
 	
-	CustomerDaoImp customerDaoImp = new CustomerDaoImp();
+	CustomerDaoImp customerDaoImp;
 	
+	
+	
+	public void setCustomerDaoImp(CustomerDaoImp customerDaoImp) {
+		this.customerDaoImp = customerDaoImp;
+	}
+
 	public CustomerServiceImp() {
 
 	}
