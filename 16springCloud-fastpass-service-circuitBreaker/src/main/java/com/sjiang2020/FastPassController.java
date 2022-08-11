@@ -1,0 +1,64 @@
+package com.sjiang2020;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Predicate;
+
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
+@RestController
+public class FastPassController {
+
+	List<FastPassCustomer> customerlist = new ArrayList<FastPassCustomer>();
+
+	public FastPassController() {
+
+		FastPassCustomer fc1 = new FastPassCustomer("100", "Richard Seroter", "555-123-4567", new BigDecimal("19.50"));
+		FastPassCustomer fc2 = new FastPassCustomer("101", "Jason Salmond", "555-321-7654", new BigDecimal("11.25"));
+		FastPassCustomer fc3 = new FastPassCustomer("102", "Lisa Szpunar", "555-987-6543", new BigDecimal("35.00"));
+
+		customerlist.add(fc1);
+		customerlist.add(fc2);
+		customerlist.add(fc3);
+	}
+
+	@RequestMapping(path = "/fastpass", params = { "fastpassid" })
+	public FastPassCustomer getFastPassById(@RequestParam String fastpassid) {
+
+		Predicate<FastPassCustomer> p = c -> c.getFastPassId().equals(fastpassid);
+		FastPassCustomer customer = customerlist.stream().filter(p).findFirst().get();
+
+		return customer;
+	}
+
+	@RequestMapping(path="/fastpass", params={"fastpassphone"})
+	public FastPassCustomer getFastPassByPhone(@RequestParam String fastpassphone) {
+		
+		Predicate<FastPassCustomer> p = c-> c.getFastPassPhone().equals(fastpassphone);
+		FastPassCustomer customer = customerlist.stream().filter(p).findFirst().get();
+		
+		return customer;
+	}
+	
+	@HystrixCommand(fallbackMethod = "getFastPassCustomerDetailsBackup") @RequestMapping(path="/customerdetails", params={"fastpassid"}) 
+	public String getFastPassCustomerDetails(@RequestParam String fastpassid, Model m) {
+		return null;
+	}
+	
+	public String getFastPassCustomerDetailsBackup(@RequestParam String fastPassId, Model m) {   
+		System.out.println("Fallback operation Called!");   
+		FastPassCustomer c = new FastPassCustomer(); 
+		c.setFastPassId(fastPassId); 
+		m.addAttribute("customer", c); 
+		return"console";  
+		}
+
+
+
+}

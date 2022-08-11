@@ -8,10 +8,10 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>16springCloud-eureka-tollrate-service</groupId>
-	<artifactId>16springCloud-eureka-tollrate-service-healthcheck</artifactId>
+	<groupId>com.sjiang2020.springdatajpa</groupId>
+	<artifactId>16springCloud-eureka-server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>16springCloud-eureka-tollrate-service-healthcheck</name>
+	<name>16springCloud-eureka</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>

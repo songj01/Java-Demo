@@ -8,10 +8,10 @@
 		<version>2.7.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>16springCloud-eureka-tollrate-service</groupId>
-	<artifactId>16springCloud-eureka-tollrate-service-healthcheck</artifactId>
+	<groupId>16springCloud-fastpass-service</groupId>
+	<artifactId>16springCloud-fastpass-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>16springCloud-eureka-tollrate-service-healthcheck</name>
+	<name>16springCloud-fastpass-service</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>11</java.version>
@@ -42,6 +42,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
