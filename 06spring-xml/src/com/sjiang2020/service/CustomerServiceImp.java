@@ -18,6 +18,12 @@ public class CustomerServiceImp implements CustomerService {
 	public CustomerServiceImp() {
 
 	}
+	
+	
+
+	public CustomerServiceImp(CustomerDaoImp customerDaoImp) {
+		this.customerDaoImp = customerDaoImp;
+	}
 
 	@Override
 	public void addCustomer(Customer newCustomer) {
